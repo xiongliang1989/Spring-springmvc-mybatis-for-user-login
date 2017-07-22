@@ -5,13 +5,19 @@
 <mapper namespace="com.xl.user.mapper.UserMapper">
 
 	<resultMap id="user" type="com.xl.user.entity.User">
-		<id property="email" column="email" />
+		<id property="id" column="id" />
+		<result property="email" column="email" />
 		<result property="username" column="username" />
 		<result property="password" column="password" />
 	</resultMap>
 
-	<insert id="insert" parameterType="com.xl.user.entity.User">
-	INSERT INTO public.user (username, email, password) VALUES (#{username}, #{email}, #{password});
-	</insert>
+	<!-- <insert id="insert" parameterType="com.xl.user.entity.User">
+		INSERT INTO public.user (id, username, email, password) VALUES (#{id},
+		#{username}, #{email}, #{password});
+	</insert> -->
+
+	<!-- <select id="getPassordByUsername" parameterType="string" resultType="string">
+		SELECT password FROM public.user WHERE username = #{username}
+	</select> -->
 
 </mapper>

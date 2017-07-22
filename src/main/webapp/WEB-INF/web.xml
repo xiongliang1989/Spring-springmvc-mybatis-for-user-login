@@ -9,6 +9,16 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring-context-mvc.xml</param-value>
     </context-param>
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<display-name>LoginFilter</display-name>
+		<description></description>
+		<filter-class>com.xl.platform.user.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/platform/*</url-pattern>
+	</filter-mapping>
     
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

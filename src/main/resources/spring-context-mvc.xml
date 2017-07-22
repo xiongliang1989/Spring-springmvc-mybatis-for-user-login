@@ -6,7 +6,7 @@
 
 
 	<!--指明 controller 所在包，并扫描其中的注解 -->
-	<context:component-scan base-package="com.xl.user" />
+	<context:component-scan base-package="com.xl" />
 
 	<!-- 2.数据库连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -19,24 +19,24 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath*:com/xl/user/mappers/config/*.xml" />
+		<property name="mapperLocations"
+			value="classpath*:com/xl/user/mappers/config/*.xml; com/xl/platform/moment/mappers/config/*.xml; com/xl/platform/moment/content/mappers/config/*.xml" />
 	</bean>
-	
+
 	<!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 注入sqlSessionFactory -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 给出需要扫描Dao接口包 -->
-		<property name="basePackage" value="com.xl.user.mapper" />
+		<property name="basePackage"
+			value="com.xl.user.mapper; com.xl.platform.moment.mapper; com.xl.platform.moment.content.mapper" />
 	</bean>
-	
+
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<!-- 注入数据库连接池 -->
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
-	
 
 </beans>

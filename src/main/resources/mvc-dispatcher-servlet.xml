@@ -12,7 +12,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 自动扫描 -->
-    <context:component-scan base-package="com.xl.user.controller"/>
+    <context:component-scan base-package="com.xl"/>
     
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
@@ -24,7 +24,7 @@
     <!--用于支持Servlet、JSP视图解析-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="prefix" value="/WEB-INF/platform/user/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
     

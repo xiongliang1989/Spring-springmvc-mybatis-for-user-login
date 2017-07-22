@@ -31,7 +31,7 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-		
+
 		<!-- DAO: MyBatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -43,7 +43,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.3</version>
 		</dependency>
-		
+
 
 		<!-- 4.Spring -->
 		<!-- 1)Spring核心 -->
@@ -62,7 +62,7 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.1.7.RELEASE</version>
 		</dependency>
-		
+
 		<!-- 2)Spring DAO层 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -74,7 +74,7 @@
 			<artifactId>spring-tx</artifactId>
 			<version>4.1.7.RELEASE</version>
 		</dependency>
-		
+
 		<!-- 3)Spring web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -90,6 +90,11 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
 		</dependency>
 	</dependencies>
 	<build>
