@@ -49,18 +49,23 @@ var judgeOpenMoment = function(){
 
 var uploadAndShare = function(){
 	var content = $("#contentId").val();
-	var allContentList;
-	$.ajax({
-		  method: "POST",
-		  async:false,
-		  url: "/Ssm/platform/moment/content/uploadAndShare",
-		  data: { "content": content },
-		  success: function(result){
-			  allContentList = eval('(' + result + ')'); ;
-		  }
-		  })
-	var momentHtml = getMomentHtml(allContentList);
-	$("#moments_id").html(momentHtml);
+	if(content == ""){
+		confirm("content can't be empty!");
+	}else{
+		var allContentList;
+		$.ajax({
+			  method: "POST",
+			  async:false,
+			  url: "/Ssm/platform/moment/content/uploadAndShare",
+			  data: { "content": content },
+			  success: function(result){
+				  allContentList = eval('(' + result + ')'); ;
+			  }
+			  })
+		var momentHtml = getMomentHtml(allContentList);
+		$("#moments_id").html(momentHtml);
+	}
+	
 }
 
 var initShare = function(){
