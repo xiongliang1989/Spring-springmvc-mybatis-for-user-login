@@ -18,15 +18,11 @@ public class MomentsController {
 	
 	@Autowired
 	private CommentsService commentsService;
-
+	
 	@RequestMapping("/login")
 	public String userLogin(HttpServletRequest request){
-		User user = getUser(request);
-		Boolean isLoginSuccess = commentsService.verifyLogin(user);
-		if(isLoginSuccess == false){
-			return "login";
-		}
-		request.getSession().setAttribute("user", user);
+//		User user = getUser(request);		
+//		request.getSession().setAttribute("user", user);
 		return "mainPage";
 	}
 	

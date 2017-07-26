@@ -1,3 +1,23 @@
+var loginUser = function(){
+	var name = $("#name").val();
+	var password = $("#password").val();
+	var login_state;
+	$.ajax({
+		  method: "POST",
+		  data: { "name": name, "password":password},
+		  async:false,
+		  url: "/Ssm/user/login",
+		  success: function(result){
+			  login_state = result;
+		  }
+		  })
+	if(login_state == "false"){
+		confirm(login_state);		
+	}else{
+		window.location.href = '/Ssm/platform/login';
+	}
+}
+
 var openMoment = function(){
 	var moments_state;
 	$.ajax({

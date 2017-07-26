@@ -17,17 +17,28 @@ public class UserLoginController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("/loginPage")
+	public String getloginPage(HttpServletRequest request){
+	
+		return "login";
+	}
+	
 	@RequestMapping("/registryPage")
 	public String getRegistryPage(HttpServletRequest request){
 	
 		return "registry";
 	}
 	
-	@RequestMapping("/loginPage")
+	@RequestMapping("/login")
+	@ResponseBody
 	public String getLoginPage(HttpServletRequest request){
-		User user = getUser(request);		
+		User user = getUser(request);
+		Boolean isLoginSuccess = userService.verifyLogin(user);
+		if(isLoginSuccess == false){
+			return "false";
+		}
 		request.getSession().setAttribute("user", user);
-		return "login";
+		return "true";
 	}
 	
 	@RequestMapping("/registry")

@@ -11,22 +11,19 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.xl.user.entity.User;
-import com.xl.user.service.UserService;
 
 /**
  * Servlet Filter implementation class LoginFilter
  */
 public class LoginFilter implements Filter {
-	
-    /**
-     * Default constructor. 
-     */
-    public LoginFilter() {
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * Default constructor.
+	 */
+	public LoginFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -38,16 +35,17 @@ public class LoginFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		 HttpServletRequest httpRequest =(HttpServletRequest) request;
-         HttpServletResponse httpResponse =(HttpServletResponse) response;
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		User user = (User) httpRequest.getSession().getAttribute("user");
-		if(user != null){
+		if (user != null) {
 			chain.doFilter(request, response);
 		} else {
 			httpResponse.sendRedirect("/Ssm/index.jsp");
 		}
-		
+
 	}
 
 	/**
