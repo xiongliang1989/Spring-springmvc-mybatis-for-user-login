@@ -5,7 +5,7 @@
 	<artifactId>Spring-springmvc-mybatis</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Springmvc-mybatis Maven Webapp</name>
+	<name>Spring-springmvc-mybatis Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -98,6 +98,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>Springmvc-mybatis</finalName>
+		<finalName>Spring-springmvc-mybatis</finalName>
 	</build>
 </project>
